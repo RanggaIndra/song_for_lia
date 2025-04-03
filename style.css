@@ -5,25 +5,35 @@
 }
 
 body {
-  height: 200vh;
+  min-height: 100vh; /* Changed from fixed height to minimum height */
   margin: 0;
+  padding: 20px 0; /* Added padding instead of fixed height */
   font-family: "Montserrat", sans-serif;
   background-image: linear-gradient(0deg, rgb(255, 255, 255) 23.8%, rgb(255, 240, 100) 92%);
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start; /* Changed from center to allow natural flow */
+  overflow-y: auto; /* Ensure content is scrollable if needed */
+}
+
+h1 {
+  margin-top: 20px; /* Add some space at the top */
+  text-align: center;
+  padding: 0 15px; /* Add padding for small screens */
 }
 
 .music-container {
   display: flex;
   padding: 20px 30px;
   position: relative;
-  margin: 100px 0;
+  margin: 40px 0; /* Reduced margin */
   z-index: 10;
   background-color: rgba(255, 255, 255, 0.8);
-  border-radius: 15x;
+  border-radius: 15px; /* Fixed missing 'px' */
   box-shadow: 0px 20px 20px rgba(252, 237, 99, 0.548);
+  width: 90%; /* Make container responsive */
+  max-width: 500px; /* Maximum width */
 }
 
 .img-container {
@@ -51,7 +61,6 @@ body {
   position: absolute;
   bottom: 0;
   left: 0;
-
   animation: rotate 10s linear infinite;
   animation-play-state: paused;
 }
@@ -105,7 +114,7 @@ body {
   padding: 10px 10px 10px 130px;
   opacity: 0;
   transform: translateY(0%);
-  transition: transform 0.3s ease-in opacity 0.4s ease-in;
+  transition: transform 0.3s ease-in, opacity 0.4s ease-in; /* Fixed comma */
 }
 
 .music-info h4 {
@@ -130,17 +139,19 @@ body {
   background-color: #feed8d;
   border-radius: 5px;
   height: 100%;
-  width: 50%;
+  width: 0%; /* Changed from 50% to 0% to start at beginning */
   transition: width 0.1s linear;
 }
 
 .text {
-  text-align: left;
-  max-width: 60%;
+  text-align: center; /* Changed from left to center */
+  width: 90%; /* Make responsive */
+  max-width: 600px;
+  margin: 20px 0; /* Add margin */
 }
 
 .lyrics {
-  width: 80%;
+  width: 90%; /* Make responsive */
   max-width: 600px;
   background-color: rgba(255, 255, 255, 0.8);
   padding: 20px;
@@ -168,11 +179,39 @@ body {
   opacity: 1;
 }
 
-/* @keyframes fadeIn {
-  from {
-    opacity: 0;
+/* Media queries for mobile responsiveness */
+@media screen and (max-width: 768px) {
+  .music-container {
+    padding: 15px;
+    margin: 30px 0;
   }
-  to {
-    opacity: 1;
+
+  .navigation {
+    margin-left: 110px; /* Add space for image */
   }
-} */
+
+  .action-btn {
+    margin: 0 10px;
+  }
+
+  .music-info {
+    padding: 10px 10px 10px 110px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  body {
+    justify-content: flex-start;
+    padding-top: 30px;
+  }
+
+  h1 {
+    font-size: 24px;
+    margin-bottom: 30px;
+  }
+
+  .music-container {
+    margin: 20px 0;
+    width: 95%;
+  }
+}
