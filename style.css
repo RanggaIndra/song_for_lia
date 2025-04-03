@@ -19,17 +19,17 @@ body {
 
 h1 {
   margin-top: 20px;
-  margin-bottom: 160px; /* Add extra space below heading */
+  margin-bottom: 160px; /* Space below heading */
   text-align: center;
   padding: 0 15px;
-  font-size: 28px; /* Slightly larger for better visibility */
+  font-size: 28px;
 }
 
 .music-container {
   display: flex;
   padding: 20px 30px;
   position: relative;
-  margin: 20px 0; /* Reduced from 40px */
+  margin: 20px 0;
   z-index: 10;
   background-color: rgba(255, 255, 255, 0.8);
   border-radius: 15px;
@@ -38,7 +38,7 @@ h1 {
   max-width: 500px;
 }
 
-/* Fix the position of the music info to prevent overlap */
+/* Fix music info positioning */
 .music-info {
   background-color: rgba(255, 255, 255, 0.5);
   border-radius: 15px 15px 0 0;
@@ -50,12 +50,12 @@ h1 {
   opacity: 0;
   transform: translateY(0%);
   transition: transform 0.3s ease-in, opacity 0.4s ease-in;
-  z-index: 20; /* Ensure it's above other elements */
+  pointer-events: none; /* Allow clicks to pass through */
 }
 
 .music-info h4 {
   margin: 0;
-  font-size: 14px; /* Smaller font for better fit on mobile */
+  font-size: 14px;
 }
 
 .music-container.play .music-info {
@@ -63,6 +63,7 @@ h1 {
   transform: translateY(-100%);
 }
 
+/* RESTORED ORIGINAL IMAGE CONTAINER STYLING */
 .img-container {
   position: relative;
   width: 110px;
@@ -78,6 +79,7 @@ h1 {
   bottom: 50%;
   border-radius: 50%;
   transform: translate(-50%, -50%);
+  pointer-events: none; /* Allow clicks to pass through */
 }
 
 .img-container img {
@@ -110,7 +112,7 @@ h1 {
   align-items: center;
   justify-content: center;
   z-index: 1;
-  margin-left: 110px; /* Always provide space for the image */
+  margin-left: 110px; /* Space for the image */
 }
 
 .action-btn {
@@ -121,6 +123,7 @@ h1 {
   cursor: pointer;
   padding: 10px;
   margin: 0 20px;
+  z-index: 20; /* Higher z-index for buttons */
 }
 
 .action-btn-big {
@@ -153,8 +156,8 @@ h1 {
   text-align: center;
   width: 90%;
   max-width: 600px;
-  margin: 40px 0 20px 0; /* Increased top margin */
-  padding: 0 15px; /* Add padding for text readability */
+  margin: 40px 0 20px 0;
+  padding: 0 15px;
 }
 
 .lyrics {
@@ -189,16 +192,15 @@ h1 {
 /* Media queries for mobile responsiveness */
 @media screen and (max-width: 768px) {
   h1 {
-    margin-bottom: 120px; /* Slightly less space on medium screens */
+    margin-bottom: 120px;
   }
 
   .music-container {
     padding: 15px;
-    margin: 30px 0;
   }
 
   .action-btn {
-    margin: 0 10px;
+    margin: 0 15px;
   }
 
   .music-info {
@@ -209,21 +211,20 @@ h1 {
 @media screen and (max-width: 480px) {
   h1 {
     font-size: 24px;
-    margin-bottom: 100px; /* Adjusted for small screens */
+    margin-bottom: 100px;
   }
 
   body {
-    justify-content: flex-start;
     padding-top: 20px;
   }
 
   .music-container {
-    margin: 0 0 20px 0; /* Removed top margin, now controlled by h1 spacing */
+    margin: 0 0 20px 0;
     width: 95%;
   }
 
-  .music-info h4 {
-    font-size: 14px; /* Smaller text on mobile */
+  .action-btn {
+    margin: 0 10px;
   }
 
   /* Add scroll indicator for lyrics */
